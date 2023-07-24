@@ -21,7 +21,7 @@ export interface GameQuery {
 function App() {
   // State to manage the game query
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-
+  const githubUrl = "https://github.com/tanvirim";
   return (
     <Grid
       templateAreas={{
@@ -92,7 +92,7 @@ function App() {
       </GridItem>
 
       <GridItem area="footer">
-        <Footer />
+        <Footer githubUrl={githubUrl} />
       </GridItem>
     </Grid>
   );
