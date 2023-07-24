@@ -1,7 +1,11 @@
-const Footer = () => {
-  const githubUrl = "https://github.com/tanvirim";
+import React from "react";
 
-  const footerStyle = {
+interface FooterProps {
+  githubUrl: string;
+}
+
+const Footer: React.FC<FooterProps> = ({ githubUrl }) => {
+  const footerStyle: React.CSSProperties = {
     backgroundColor: "#333",
     color: "#fff",
     textAlign: "center",
@@ -10,13 +14,13 @@ const Footer = () => {
     fontFamily: "'Pacifico', cursive", // Fancy font
   };
 
-  const linkStyle = {
+  const linkStyle: React.CSSProperties = {
     color: "#fff",
     textDecoration: "none",
     transition: "color 0.3s ease-in-out",
   };
 
-  const linkHoverStyle = {
+  const linkHoverStyle: React.CSSProperties = {
     color: "blue",
   };
 
