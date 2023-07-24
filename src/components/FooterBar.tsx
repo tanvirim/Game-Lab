@@ -1,3 +1,4 @@
+import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 
 interface FooterProps {
@@ -6,8 +7,6 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ githubUrl }) => {
   const footerStyle: React.CSSProperties = {
-    backgroundColor: "#333",
-    color: "#fff",
     textAlign: "center",
     padding: "20px",
     fontSize: "14px",
@@ -15,7 +14,6 @@ const Footer: React.FC<FooterProps> = ({ githubUrl }) => {
   };
 
   const linkStyle: React.CSSProperties = {
-    color: "#fff",
     textDecoration: "none",
     transition: "color 0.3s ease-in-out",
   };
@@ -25,22 +23,25 @@ const Footer: React.FC<FooterProps> = ({ githubUrl }) => {
   };
 
   return (
-    <footer style={footerStyle}>
-      <p>
-        All rights reserved by Tanvir Mitul &copy; {new Date().getFullYear()}
-      </p>
-      <p>
-        Created by{" "}
-        <a
-          href={githubUrl}
-          style={linkStyle}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Tanvir Mitul
-        </a>
-      </p>
-    </footer>
+    <Box>
+      <footer style={footerStyle}>
+        <Text>
+          {" "}
+          All rights reserved by Tanvir Mitul &copy; {new Date().getFullYear()}
+        </Text>
+        <p>
+          Created by{" "}
+          <a
+            href={githubUrl}
+            style={linkStyle}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Tanvir Mitul
+          </a>
+        </p>
+      </footer>
+    </Box>
   );
 };
 
