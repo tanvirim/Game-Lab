@@ -1,6 +1,7 @@
 import { Box, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import { useState } from "react";
 import "./App.css";
+import Footer from "./components/FooterBar";
 import GameGrid from "./components/GameGrid";
 import GameHeading from "./components/GameHeading";
 import GenresList from "./components/GenresList";
@@ -24,8 +25,8 @@ function App() {
   return (
     <Grid
       templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`,
+        base: `"nav" "main" "footer"`,
+        lg: `"nav nav" "aside main" "footer footer"`,
       }}
       templateColumns={{
         base: "1fr",
@@ -88,6 +89,10 @@ function App() {
         {/* Pass the gameQuery state to GameGrid */}
         {/* The GameGrid component will use the gameQuery to fetch and display the games */}
         <GameGrid gameQuery={gameQuery} />
+      </GridItem>
+
+      <GridItem area="footer">
+        <Footer />
       </GridItem>
     </Grid>
   );
