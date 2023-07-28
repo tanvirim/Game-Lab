@@ -16,14 +16,14 @@ interface Props {
 }
 
 const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
-  const { data, errors, loading } = useGenres();
+  const { data, isError, isLoading } = useGenres();
 
-  if (loading) {
-    return <Spinner></Spinner>; // Show loading indicator while data is being fetched
+  if (isLoading) {
+    return <Spinner></Spinner>; 
   }
 
-  if (errors) {
-    return <div>Error: {errors}</div>; // Show error message if there is an error
+  if (isError) {
+    return <div> {isError}</div>; 
   }
 
   return (
@@ -32,7 +32,7 @@ const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
         Genres
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id}>
             <HStack marginBottom={2}>
               <Image
