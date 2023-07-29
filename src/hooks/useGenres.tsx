@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 
 import genres from "../constants/genres";
 
+//npm i -D @types/ms for ts support
+import ms from 'ms'
 import APIClient from "../services/api-client";
 
 export interface Genres {
@@ -20,7 +22,7 @@ const useGenres = () =>
     queryFn: apiClient.getData ,
 
 
-    staleTime: 24 * 60 * 60 * 1000, //24 hours
+    staleTime: ms('24h'), //24 hours
 
     initialData: genres,
   });
