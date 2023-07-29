@@ -5,19 +5,19 @@ import genres from "../constants/genres";
 
 import APIClient from "../services/api-client";
 
-const apiClient = new APIClient<Genres>('/genres')
-
 export interface Genres {
   name: string;
   id: number;
   image_background: string;
 }
+const apiClient = new APIClient<Genres>('/genres')
+
 
 const useGenres = () =>
   useQuery({
     queryKey: ["genres"],
 
-    queryFn: () => apiClient.getData ,
+    queryFn: apiClient.getData ,
 
 
     staleTime: 24 * 60 * 60 * 1000, //24 hours
