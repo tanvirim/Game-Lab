@@ -34,21 +34,19 @@ function App() {
         lg: "200px 1fr",
       }}
     >
-      {/* NavBar section */}
+      
       <GridItem area="nav" bg="">
         <NavBar
-          // Pass the onSearch function to NavBar
-          // When the search text is entered, the gameQuery state is updated
+ 
           onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
         />
       </GridItem>
 
       <Show above="lg">
-        {/* GenresList section (only visible above the 'lg' breakpoint) */}
+       
         <GridItem area="aside" bg="" paddingX="5px">
           <GenresList
-            // Pass selectedGenre and onSelectGenre props to GenresList
-            // When a genre is selected, the gameQuery state is updated
+      
             selectedGenre={gameQuery.genre}
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
@@ -58,15 +56,12 @@ function App() {
       {/* Main section */}
       <GridItem area="main" bg="">
         <Box paddingLeft={2}>
-          {/* GameHeading section */}
-          {/* Pass the gameQuery state to GameHeading */}
+
           <GameHeading gameQuery={gameQuery} />
 
-          {/* HStack section (for PlatformSelector and SortSelector) */}
+          
           <HStack spacing={5} marginBottom={5}>
-            {/* PlatformSelector section */}
-            {/* Pass the selectedPlatform and onSelectPlatform props to PlatformSelector */}
-            {/* When a platform is selected, the gameQuery state is updated */}
+
             <PlatformSelector
               selectedPlatform={gameQuery.platform}
               onSelectPlatform={(platform) =>
@@ -74,9 +69,6 @@ function App() {
               }
             />
 
-            {/* SortSelector section */}
-            {/* Pass the selectedSort and onSelectSortOrder props to SortSelector */}
-            {/* When a sort order is selected, the gameQuery state is updated */}
             <SortSelector
               selectedSort={gameQuery.sortOrder}
               onSelectSortOrder={(sortOrder) =>
@@ -86,9 +78,7 @@ function App() {
           </HStack>
         </Box>
 
-        {/* GameGrid section */}
-        {/* Pass the gameQuery state to GameGrid */}
-        {/* The GameGrid component will use the gameQuery to fetch and display the games */}
+
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
 
