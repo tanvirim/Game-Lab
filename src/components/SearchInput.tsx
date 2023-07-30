@@ -1,27 +1,25 @@
 import { Button, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import { useState } from "react"; // Import useState
+import { useRef, useState } from "react"; // Import useState
 import { BsSearch } from "react-icons/bs";
 import "../index.css";
+import useGameQueryStore from "../store";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
 
-const SearchInput = ({ onSearch }: Props) => {
-  const [searchText, setSearchText] = useState(""); // State to manage the input value
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    onSearch(searchText); // Call the onSearch function with the current search text
-  };
+const SearchInput = () => {
+ const setSearchText = useGameQueryStore(s=> s.setSearchText)
+  const ref = useRef<HTMLInputElement> (null)
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={(e)=>
+    {
+      e.preventDefault()
+      if(ref.current) setSearchText(ref.current.value)
+
+    }}>
       <InputGroup>
         <InputLeftElement children={<BsSearch />} />
         <Input
-          value={searchText} // Bind the input value to the state
-          onChange={(e) => setSearchText(e.target.value)} // Update the state when the input value changes
+          ref={ref}
           borderRadius={20}
           placeholder="Search Games..."
           variant="filled"
