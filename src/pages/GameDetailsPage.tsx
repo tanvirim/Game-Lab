@@ -1,36 +1,34 @@
-import { Heading, Spinner, Text ,Button } from '@chakra-ui/react'
-import { useParams } from 'react-router-dom'
-import ExpandableText from '../components/ExpandableText'
+import { Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
+import DefinitionItem from "../components/DefinitionItem";
+import ExpandableText from "../components/ExpandableText";
+import GameAttributes from "../components/GameAttributes";
 
-
-import useGame from '../hooks/useGame'
+import useGame from "../hooks/useGame";
 
 const GameDetailsPage = () => {
- 
-  const { slug } = useParams()
-  const { data, isLoading, error } = useGame(slug!)
+  const { slug } = useParams();
+  const { data: game, isLoading, error } = useGame(slug!);
 
-  if (isLoading) return <Spinner />
+  if (isLoading) return <Spinner />;
 
   if (error) {
-    console.error('Error fetching game data:', error)
-    return <Text>Error fetching game data.</Text>
+    console.error("Error fetching game game:", error);
+    return <Text>Error fetching game game.</Text>;
   }
 
-  if (!data) {
-    return <Text>No data available for the provided slug.</Text>
+  if (!game) {
+    return <Text>No game available for the provided slug.</Text>;
   }
 
   return (
- <div>
+    <>
+      <Heading> {game.name}</Heading>
+      <ExpandableText text={game.description_raw} maxLength={300} />
+ <GameAttributes game={game}/>
 
-     <Heading> {data.name}</Heading>
-     <ExpandableText text={data.description_raw} maxLength= {300} />
- </div>
-      
-  
-    
-  )
-}
+    </>
+  );
+};
 
-export default GameDetailsPage
+export default GameDetailsPage;
