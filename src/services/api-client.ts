@@ -30,8 +30,13 @@ class APIClient<T> {
   };
 
   postData=(data: T)=> {
-    return axiosInstance.post<T>(this.endPoint, data).then((res) => res.data);
+    return axiosInstance.post<T>(this.endPoint, data)
+    .then((res) => res.data);
+  }
+
+  getGame = ( id: number | string )=> {
+    return axiosInstance.get<T>(this.endPoint + "/" + id )
+    .then((res)=> res.data)
   }
 }
-
 export default APIClient;
