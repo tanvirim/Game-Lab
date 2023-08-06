@@ -6,12 +6,8 @@ import genres from "../constants/genres";
 //npm i -D @types/ms for ts support
 import ms from 'ms'
 import APIClient from "../services/api-client";
+import { Genres } from "../entities/Genres";
 
-export interface Genres {
-  name: string;
-  id: number;
-  image_background: string;
-}
 const apiClient = new APIClient<Genres>('/genres')
 
 

@@ -12,7 +12,7 @@ import { IconType } from "react-icons";
 import { AiFillApple } from "react-icons/ai";
 import { RiMacbookLine } from "react-icons/ri";
 import { SiNintendo } from "react-icons/si";
-import { Game } from "../hooks/useGames";
+import { Game } from "../entities/Game";
 
 interface Props {
   game: Game;
