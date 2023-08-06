@@ -38,5 +38,7 @@ class APIClient<T> {
     return axiosInstance.get<T>(this.endPoint + "/" + id )
     .then((res)=> res.data)
   }
+
+  
 }
 export default APIClient;
