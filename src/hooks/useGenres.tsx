@@ -6,7 +6,7 @@ import genres from "../constants/genres";
 //npm i -D @types/ms for ts support
 import ms from 'ms'
 import APIClient from "../services/api-client";
-import { Genres } from "../entities/Genres";
+import Genres from "../entities/Genres";
 
 const apiClient = new APIClient<Genres>('/genres')
 
