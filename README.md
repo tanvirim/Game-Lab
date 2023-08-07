@@ -5,4 +5,6 @@
 
 live site at
 
+https://game-lab-tanvirim.vercel.app/
+
 https://game-lab-one.vercel.app/
